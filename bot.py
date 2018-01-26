@@ -5,6 +5,7 @@ import discord
 import asyncio
 import logging
 from tokencord import tokencord
+import datetime
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -30,8 +31,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('$mfk'):
+    if message.content.startswith('$mfkstart'):
         await client.send_message(message.channel, '**Beginning a game of MFK!**')
+        await start = datetime.time
+    elif message.content.startswith('$mfkend')
+        await client.purge_from(message.channel, *, after=start)
     elif message.content.lower().find('clut') > -1:
         await client.delete_message(message)
         await client.send_message(message.channel, '***GET THAT CANCER OUT OF HERE***')
