@@ -3,7 +3,9 @@
 # MFKBot
 import discord
 import asyncio
+import logging
 
+logging.basicConfig(level=logging.INFO)
 client = discord.Client()
 
 @client.event
