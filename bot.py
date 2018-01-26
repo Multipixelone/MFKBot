@@ -20,8 +20,8 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-    get_all_members()
-    print(server.members)
+    #get_all_members()
+    #print(server.members)
 
 #@client.event
 #async def on_message(message):
