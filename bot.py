@@ -4,6 +4,7 @@
 import discord
 import asyncio
 import logging
+from token import token
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -21,7 +22,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!test'):
+    if message.content.startswith('!clear'):
         counter = 0
         tmp = await client.send_message(message.channel, 'Calculating messages...')
         async for log in client.logs_from(message.channel, limit=100):
