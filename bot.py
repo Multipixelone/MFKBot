@@ -4,7 +4,7 @@
 import discord
 import asyncio
 import logging
-from token import token
+from tokencord import tokencord
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -20,18 +20,18 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
+#@client.event
+#async def on_message(message):
+#    if message.content.lower().find('clut') > -1:
+#        await client.delete_message(message)
+#        await client.send_message(message.channel, '***GET THAT CANCER OUT OF HERE***')
+
 @client.event
 async def on_message(message):
-    if message.content.startswith('!clear'):
-        counter = 0
-        tmp = await client.send_message(message.channel, 'Calculating messages...')
-        async for log in client.logs_from(message.channel, limit=100):
-            if log.author == message.author:
-                counter += 1
+    if message.content.startswith('$mfk'):
+        await client.send_message(message.channel, '**Beginning a game of MFK!**')
+    elif message.content.lower().find('clut') > -1:
+        await client.delete_message(message)
+        await client.send_message(message.channel, '***GET THAT CANCER OUT OF HERE***')
 
-        await client.edit_message(tmp, 'You have {} messages.'.format(counter))
-    elif message.content.startswith('!sleep'):
-        await asyncio.sleep(5)
-        await client.send_message(message.channel, 'Done sleeping')
-
-client.run('token')
+client.run(tokencord)
