@@ -33,7 +33,7 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith('$mfkstart'):
         await client.send_message(message.channel, '**Beginning a game of MFK!**')
-        mfkstart = datetime.time
+        mfkstart = datetime.datetime.now()
     elif message.content.startswith('$mfkend'):
         await client.purge_from(message.channel, limit=500, after=mfkstart)
     elif message.content.lower().find('clut') > -1:
